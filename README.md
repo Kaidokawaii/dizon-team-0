@@ -28,3 +28,7 @@ My name is Ethan McFadden. I am excited to learn new stuff for this project and 
 ______________
 
 Hi, my name is Quennel Kempe. I was here.
+
+Hi my name is Khai, I was here and created the README 
+
+I wanted to try making a particle system where we have multiple colored particles flying around the screen and if they collide, depending on the color, the particle will "eat" or change the particle of what its colliding with, and we can see almost all the paticles slowly change into one dominant color.
