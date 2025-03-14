@@ -26,3 +26,5 @@ My name is Ethan McFadden. I am excited to learn new stuff for this project and 
 
 3: clicking the screen at will make a bunch of particles appear around the clicked spot, which implode into an image, like the example we saw in class. This will then fall to the bottom of the screen once the image is formed, at which point it explodes into particles again (Expected Most Difficulty)
 ______________
+
+Hi, my name is Quennel Kempe. I was here.
