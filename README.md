@@ -29,6 +29,8 @@ ______________
 
 Hi, my name is Quennel Kempe. I was here.
 
+My idea for the particle system was having asteroids fall down to the terrain by the use of gravity, and when they dropped, they exploded. When two asteroids collide they change into another color (black, gray, red, orange, purple). When multiple asteroids land at the same time, there is a bigger radius of the explosion.
+
 Hi my name is Khai, I was here and created the README 
 
 I wanted to try making a particle system where we have multiple colored particles flying around the screen and if they collide, depending on the color, the particle will "eat" or change the particle of what its colliding with, and we can see almost all the paticles slowly change into one dominant color.
