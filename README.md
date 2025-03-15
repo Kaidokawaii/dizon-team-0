@@ -17,6 +17,12 @@
 
 [hello world](https://google.com)
 
+Hi, my name is Ethan. I will be doing part A of milestone 1.
+
+
+
+
+
 ______________
 My name is Ethan McFadden. I am excited to learn new stuff for this project and have some ideas in varying levels of difficulty.
 
