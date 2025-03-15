@@ -19,7 +19,7 @@
 
 Hi, my name is Ethan. I will be doing part A of milestone 1.
 
-
+My name is Quennel and I will be doing part B of milestone 1.
 
 
 
