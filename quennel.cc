@@ -10,6 +10,7 @@ class Particle {
 	double velocity;
 	double frames; //the lifetime of the particle
 
+public: 	
 	Particle() {
 
 	}
@@ -26,7 +27,7 @@ class Particle {
 
 	}
 	double get_position() const { return 1; }
-	
+
 	double get_velocity() const { return 1; }
 
 	double get_frames() const { return 1; }
