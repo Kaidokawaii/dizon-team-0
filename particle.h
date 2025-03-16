@@ -29,6 +29,7 @@ class Particle {
 		double get_velocityX() const;
 		double get_velocityY() const;
 		double get_frames() const;
+		std::string get_movementType() const;
 		void physics(Movement& movementType);
 		std::string draw(Movement& movementType);
 };

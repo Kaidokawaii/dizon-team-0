@@ -45,5 +45,19 @@ int main() {
 	} else {
 		cout << "B points BEFORE itself towards Null Pointer" << endl;
 	}
+
+
+
+	//Quennel's test for particle class
+	Movement motion("BALLISTIC");
+	Particle tt;
+	tt.set_movementType(motion);
+	tt.set_velocityY(-20);
+	tt.set_frames(10);
+	cout << "Particle tt's position: (" << tt.get_x() << "," << tt.get_y() << ")" << endl;
+	cout << "Particle tt's velocity: (" << tt.get_velocityX() << "," << tt.get_velocityY() << ")" << endl;
+	cout << "Particle tt has " << tt.get_frames() << " frames." << endl;
+	cout << "Particle tt is " << tt.get_movementType() << endl;
+
 	return 0;
 }

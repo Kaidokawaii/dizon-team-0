@@ -1,5 +1,6 @@
 #include "particle.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -52,6 +53,8 @@ double Particle::get_velocityY() const { return velocityY; }
 
 double Particle::get_frames() const { return frames; }
 
+string Particle::get_movementType() const { return movementType.type;}
+	
 void Particle::physics(Movement& movementType) {
 		
 }
