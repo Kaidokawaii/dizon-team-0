@@ -16,7 +16,7 @@ int main() {
 	cout << "Particle 1 Values Are: " << p1.get_x() << " " << p1.get_y() << " " << p1.get_velocityX() << " " << p1.get_velocityY() << " " << p1.get_frames() << " " << endl;
 	cout << "Particle 2 Values Are: " << p2.get_x() << " " << p2.get_y() << " " << p2.get_velocityX() << " " << p2.get_velocityY() << " " << p2.get_frames() << " " << endl;
 
-
+//Ethan's Test For Cell Class
 	Cell A(p1);
 	Cell B(p2);
 
