@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Cell::cell(Particle newParticle) {
+Cell::Cell(Particle newParticle) {
 	particle = newParticle;
 }
 Cell* Cell::getNext() {

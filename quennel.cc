@@ -2,19 +2,19 @@
 #include <iostream>
 using namespace std;
 
-struct Movement {
-	string type = "STREAMER";
-	Movement(string new_type) {
-		type = new_type;
-	}
-};
+
+Movement::Movement(string new_type) {
+	type = new_type;
+}
 
 Particle::Particle() {
+		Movement m("STREAMER");
 		x = 0;
 		y = 0;
 		velocityX = 0;
-		veolictyY = 0;
+		velocityY = 0;
 		frames = 0;
+		movementType = m;
 }
 Particle::Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType) {
 		x = new_x;

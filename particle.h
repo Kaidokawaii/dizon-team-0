@@ -1,19 +1,11 @@
 #pragma once
+#include <iostream>
 
-class Cell {
-	private:
-		Particle particle;
-		Cell* next = nullptr;
-		Cell* prev = nullptr;
-	public:
-		Cell(Particle newParticle);
-		Cell* getNext();
-		Cell* getPrev();
-		Particle getParticle();
-		void setNext(Cell* newNext);
-		void setPrev(Cell* newPrev);
-		void setParticle(particle newParticle);
-}
+
+struct Movement {
+	std::string type;
+	Movement(std::string new_type = "STREAMER");
+};
 
 class Particle {
 	double x;
@@ -38,6 +30,20 @@ class Particle {
 		double get_velocityY() const;
 		double get_frames() const;
 		void physics(Movement& movementType);
-		string draw(Movement& movementType);
+		std::string draw(Movement& movementType);
 };
 
+class Cell {
+	private:
+		Particle particle;
+		Cell* next = nullptr;
+		Cell* prev = nullptr;
+	public:
+		Cell(Particle newParticle);
+		Cell* getNext();
+		Cell* getPrev();
+		Particle getParticle();
+		void setNext(Cell* newNext);
+		void setPrev(Cell* newPrev);
+		void setParticle(Particle newParticle);
+};
