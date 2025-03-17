@@ -4,9 +4,10 @@
 using namespace std;
 
 //Khai's test for Particle System Class
-    void testParticleSystem() {
+/*   
+void testParticleSystem() {
         ParticleSystem system(1080, 720);
-        cout << "Screen size: " << 1080 << x << 720 << "\n";
+        cout << "Screen size: " << 1080 << "x" << 720 << "\n";
 
         //Test add function
         Particle* firstP = new Particle(100, 200);
@@ -34,6 +35,7 @@ using namespace std;
         delete secondP;
         delete thirdP;
     }
+	*/
 
     void testParticleGraphics() {
         ParticleGraphics graphics;
@@ -45,7 +47,7 @@ using namespace std;
         graphics.drawRectangle(100, 100, 50, 25);
         graphics.drawOval(200, 200, 25, 50);
         graphics.drawPolygon({50, 70, 300, 70}); //fix for coords
-        graphics.drawLine{0, 0, 1080, 720);
+        graphics.drawLine(0, 0, 1080, 720);
     }   
 
 int main() {
@@ -105,7 +107,7 @@ int main() {
 	cout << "Particle tt is " << tt.get_movementType() << endl;
 
 	//Khai testing functions:
-	testParticleSystem();
+	//testParticleSystem();
 	testParticleGraphics();
 
 	return 0;

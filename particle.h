@@ -19,6 +19,7 @@ class Particle {
 
 	public:
 		Particle();
+		Particle(double x, double y);
 		Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType);
 		void set_x(double new_x);
 		void set_y(double new_y);
@@ -74,12 +75,12 @@ class ParticleGraphics {
 		std::string color;
 	public:
 		ParticleGraphics();
-		std:::string getColor();
+		std::string getColor();
 		void setColor(std::string color);
 		void drawPoint(double x, double y);
 		void drawRectangle(double x, double y, double width, double height);
 		void drawOval(double x, double y, double width, double height);
-		void drawPolygon(vector<double> points);
+		void drawPolygon(std::vector<double> points);
 		void drawLine(double x1, double y1, double x2, double y2);
 
 };
