@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
-
+#include <string>
+#include <vector>
 
 struct Movement {
 	std::string type;
@@ -14,6 +15,7 @@ class Particle {
 	double velocityY;
 	double frames; //the lifetime of the particle
 	Movement movementType;
+	Particle* next;
 
 	public:
 		Particle();
@@ -24,6 +26,9 @@ class Particle {
 		void set_velocityY(double new_velocityY);
 		void set_frames(double new_frames);
 		void set_movementType(Movement new_movementType);
+		void move();
+		void draw();
+		
 		double get_x() const;
 		double get_y() const;
 		double get_velocityX() const;
@@ -47,4 +52,19 @@ class Cell {
 		void setNext(Cell* newNext);
 		void setPrev(Cell* newPrev);
 		void setParticle(Particle newParticle);
+};
+
+class ParticleSystem {
+		private:
+		int screenWidth, screenHeight;
+		Cell* head;
+		Cell* tail;
+
+public: 
+		ParticleSystem(int width, int height);
+		void add(Particle* particle);
+		int numParticles();
+		void moveParticles();
+		void drawParticles();
+		void drawWindow();
 };
