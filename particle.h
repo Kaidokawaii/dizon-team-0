@@ -29,7 +29,9 @@ class Particle {
 		void set_velocityY(double new_velocityY);
 		void set_frames(double new_frames);
 		void set_movementType(Movement new_movementType);
-		
+		void moveP();
+		void drawP();
+
 		double get_x() const;
 		double get_y() const;
 		double get_velocityX() const;
@@ -61,7 +63,8 @@ class ParticleSystem {
 		Cell* head;
 		Cell* tail;
 
-	public: 
+	public: 	
+		//ParticleSystem(double x, double y);
 		ParticleSystem(double width, double height);
 		~ParticleSystem(); //Destructor
 		void add(Particle* particle);
@@ -69,8 +72,6 @@ class ParticleSystem {
 		void moveParticles();
 		void drawParticles();
 		void drawWindow();
-		void move();
-		void draw();
 };
 
 class ParticleGraphics {
