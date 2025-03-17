@@ -65,6 +65,7 @@ class ParticleSystem {
 
 	public: 
 		ParticleSystem(double width, double height);
+		~ParticleSystem(); //Destructor
 		void add(Particle* particle);
 		int numParticles();
 		void moveParticles();

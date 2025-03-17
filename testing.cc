@@ -29,11 +29,6 @@ void testParticleSystem() {
 
         //Test drawWindow();
         system.drawWindow();
-
-        //delete
-        delete firstP;
-        delete secondP;
-        delete thirdP;
     }
 
 
