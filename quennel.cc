@@ -63,22 +63,8 @@ string Particle::get_movementType() const { return movementType.type;}
 void Particle::physics(Movement& movementType) {
 		
 }
-
-void Particle::move() {
-	x += velocityX;
-	y += velocityY;
-
-	if (frames > 0) {
-		frames--;
-	}
-}
-
-void Particle::draw() {
-	cout << "Drawing at (" << x << "," << y << ")" << endl;
-}
-/*
 string Particle::draw(Movement& movementType) {
 		return "stub";
 }
-*/
+
 
