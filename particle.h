@@ -29,8 +29,6 @@ class Particle {
 		void set_velocityY(double new_velocityY);
 		void set_frames(double new_frames);
 		void set_movementType(Movement new_movementType);
-		void move();
-		void draw();
 		
 		double get_x() const;
 		double get_y() const;
@@ -39,7 +37,7 @@ class Particle {
 		double get_frames() const;
 		std::string get_movementType() const;
 		void physics(Movement& movementType);
-		//std::string draw(Movement& movementType);
+		std::string draw(Movement& movementType);
 };
 
 class Cell {
@@ -71,6 +69,8 @@ class ParticleSystem {
 		void moveParticles();
 		void drawParticles();
 		void drawWindow();
+		void move();
+		void draw();
 };
 
 class ParticleGraphics {
