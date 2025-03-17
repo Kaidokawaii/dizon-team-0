@@ -1,0 +1,58 @@
+#include "particle.h"
+#include <iostream>
+
+using namespace std;
+
+ParticleSystem::ParticleSystem(double width, double height) : screenWidth(width), screenHeight(height), head(nullptr), tail(nullptr) {}
+
+void ParticleSystem::add(Particle* newParticle) {
+	Cell* newCell = new Cell(newParticle);
+	if(!head) {
+		head = newCell;
+		tail = newCell;
+	} else {
+		newCell->setPrev(tail);
+		tail->setNext(newCell);
+		tail = newCell;
+	}
+}
+
+ParticleSystem::~ParticleSystem() {
+    Cell* current = head;
+    while (current) {
+        Cell* next = current->getNext();
+        delete current->getParticle();
+        delete current;
+        current = next;
+    }
+}
+
+int ParticleSystem::numParticles() {
+	int count = 0;
+	Cell* current = head;
+	while (current) {
+		count ++;
+		current = current->getNext();
+	}
+	return count;
+}
+
+void ParticleSystem::moveParticles() {
+	Cell* current = head;
+	while (current) {
+		current->getParticle()->move();
+		current = current->getNext();
+	}
+}
+
+void ParticleSystem::drawParticles() {
+	Cell* current = head;
+	while (current) {
+		current->getParticle()->draw();
+		current = current->getNext();
+	}
+}
+
+void ParticleSystem::drawWindow() {
+	cout << "Width: " << screenWidth << " Height: " << screenHeight << endl;
+}
