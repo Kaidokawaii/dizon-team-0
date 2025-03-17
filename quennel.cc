@@ -17,6 +17,11 @@ Particle::Particle() {
 		frames = 0;
 		movementType = m;
 }
+
+
+Particle::Particle(double x, double y) : x(x), y(y), velocityX(0), velocityY(0), frames(0), movementType("STREAMER"), next(nullptr) {}
+
+
 Particle::Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType) {
 		x = new_x;
 		y = new_y;
@@ -59,7 +64,21 @@ void Particle::physics(Movement& movementType) {
 		
 }
 
+void Particle::move() {
+	x += velocityX;
+	y += velocityY;
+
+	if (frames > 0) {
+		frames--;
+	}
+}
+
+void Particle::draw() {
+	cout << "Drawing at (" << x << "," << y << ")" << endl;
+}
+/*
 string Particle::draw(Movement& movementType) {
 		return "stub";
 }
+*/
 

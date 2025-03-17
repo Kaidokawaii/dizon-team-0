@@ -4,7 +4,7 @@
 using namespace std;
 
 //Khai's test for Particle System Class
-/*   
+ 
 void testParticleSystem() {
         ParticleSystem system(1080, 720);
         cout << "Screen size: " << 1080 << "x" << 720 << "\n";
@@ -35,7 +35,7 @@ void testParticleSystem() {
         delete secondP;
         delete thirdP;
     }
-	*/
+
 
     void testParticleGraphics() {
         ParticleGraphics graphics;
@@ -53,19 +53,15 @@ void testParticleSystem() {
 int main() {
 	Movement m("FIREWORK");
 	Particle p1;
-	double a,b,c,d;
-	a = 5;
-	b = 12;
-	c = 3;
-	d = 16;
-	Particle p2(a, b, c, d,2, m);
+	double a = 5, b = 12, c = 3, d = 16;
+	Particle p2(a, b, c, d, 2, m);
 
 	cout << "Particle 1 Values Are: " << p1.get_x() << " " << p1.get_y() << " " << p1.get_velocityX() << " " << p1.get_velocityY() << " " << p1.get_frames() << " " << endl;
 	cout << "Particle 2 Values Are: " << p2.get_x() << " " << p2.get_y() << " " << p2.get_velocityX() << " " << p2.get_velocityY() << " " << p2.get_frames() << " " << endl;
 
 //Ethan's Test For Cell Class
-	Cell A(p1);
-	Cell B(p2);
+	Cell A(&p1);
+	Cell B(&p2);
 
 	A.setNext(&B);
 	B.setPrev(&A);
@@ -107,7 +103,7 @@ int main() {
 	cout << "Particle tt is " << tt.get_movementType() << endl;
 
 	//Khai testing functions:
-	//testParticleSystem();
+	testParticleSystem();
 	testParticleGraphics();
 
 	return 0;

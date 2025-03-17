@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PARTICLE_H
+#define PARTICLE_H
 #include <iostream>
 #include <string>
 #include <vector>
@@ -37,22 +39,22 @@ class Particle {
 		double get_frames() const;
 		std::string get_movementType() const;
 		void physics(Movement& movementType);
-		std::string draw(Movement& movementType);
+		//std::string draw(Movement& movementType);
 };
 
 class Cell {
 	private:
-		Particle particle;
+		Particle* particle;
 		Cell* next = nullptr;
 		Cell* prev = nullptr;
 	public:
-		Cell(Particle newParticle);
+		Cell(Particle* newParticle);
 		Cell* getNext();
 		Cell* getPrev();
-		Particle getParticle();
+		Particle* getParticle();
 		void setNext(Cell* newNext);
 		void setPrev(Cell* newPrev);
-		void setParticle(Particle newParticle);
+		void setParticle(Particle* newParticle);
 };
 
 class ParticleSystem {
@@ -84,3 +86,5 @@ class ParticleGraphics {
 		void drawLine(double x1, double y1, double x2, double y2);
 
 };
+
+#endif
