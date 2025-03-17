@@ -55,16 +55,31 @@ class Cell {
 };
 
 class ParticleSystem {
-		private:
-		int screenWidth, screenHeight;
+	private:
+		double screenWidth, screenHeight;
 		Cell* head;
 		Cell* tail;
 
-public: 
-		ParticleSystem(int width, int height);
+	public: 
+		ParticleSystem(double width, double height);
 		void add(Particle* particle);
 		int numParticles();
 		void moveParticles();
 		void drawParticles();
 		void drawWindow();
+};
+
+class ParticleGraphics {
+	private:
+		std::string color;
+	public:
+		ParticleGraphics();
+		std:::string getColor();
+		void setColor(std::string color);
+		void drawPoint(double x, double y);
+		void drawRectangle(double x, double y, double width, double height);
+		void drawOval(double x, double y, double width, double height);
+		void drawPolygon(vector<double> points);
+		void drawLine(double x1, double y1, double x2, double y2);
+
 };
