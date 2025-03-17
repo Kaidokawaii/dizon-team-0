@@ -21,7 +21,7 @@ Hi, my name is Ethan. I will be doing part A of milestone 1.
 
 My name is Quennel and I will be doing part B of milestone 1.
 
-
+My name is Khai, and I will be working on the ParticleSystem class and ParticleGraphics class (Part C and D)
 
 ______________
 My name is Ethan McFadden. I am excited to learn new stuff for this project and have some ideas in varying levels of difficulty.
@@ -36,6 +36,7 @@ ______________
 Hi, my name is Quennel Kempe. I was here.
 
 My idea for the particle system was having asteroids fall down to the terrain by the use of gravity, and when they dropped, they exploded. When two asteroids collide they change into another color (black, gray, red, orange, purple). When multiple asteroids land at the same time, there is a bigger radius of the explosion.
+______________
 
 Hi my name is Khai, I was here and created the README 
 
