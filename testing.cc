@@ -101,5 +101,10 @@ int main() {
 	testParticleSystem();
 	testParticleGraphics();
 
+
+
+
+
+	cout << "1 + 1 = 2" << endl;
 	return 0;
 }
