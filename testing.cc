@@ -101,10 +101,14 @@ int main() {
 	testParticleSystem();
 	testParticleGraphics();
 
+<<<<<<< HEAD
 
 
 
 
 	cout << "1 + 1 = 2 again" << endl;
+=======
+	cout << "testing and fixing merge conflict" << endl;
+>>>>>>> 48ca57fad489d6f25129cfcef81a8e3093b54e8c
 	return 0;
 }
