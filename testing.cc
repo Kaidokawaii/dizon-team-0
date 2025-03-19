@@ -101,5 +101,6 @@ int main() {
 	testParticleSystem();
 	testParticleGraphics();
 
+	cout << "testing and fixing merge conflict" << endl;
 	return 0;
 }
