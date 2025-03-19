@@ -23,7 +23,7 @@ void testParticleSystem() {
         cout << "Number of particles: " << system.numParticles() << "\n";
 
         //Test moveParticles
-        system.moveParticles(graphics);
+        system.moveParticles();
 
         //Test drawParticles
         system.drawParticles(graphics);

@@ -91,9 +91,12 @@ void ParticleGraphics::drawPoint(double x, double y) {
 	//cout << "Drawing point at: " << x << "," << y << endl;
 }
 
+//WRK This doesn't belong here
+/*
 void ParticleGraphics::moveP(Particle& particle) {
 	particle.physics(particle.movementType);
 }
+*/
 
 void ParticleGraphics::drawP(Particle& particle) {
 	drawPoint(particle.get_x(), particle.get_y());

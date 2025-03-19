@@ -58,24 +58,30 @@ double Particle::get_frames() const { return frames; }
 
 string Particle::get_movementType() const { return movementType.type;}
 	
-void Particle::physics(Movement& movementType) {		
-	
+void Particle::physics(ParticleSystem *owner = nullptr) {		
 		x += velocityX;
 		y += velocityY;
-		if (x < 0) {
-			x *= -1;
-			velocityX *= -1;
-		}
-		if (y < 0) {
-			y *= -1;
-			velocityY *= -1;
-		}	
 		if (movementType.type == "BALLISTIC") {
 			velocityY += 1;
+		}	
+		if (movementType.type == "FIREWORK") {
+			if (frames == 0) {
+				Particle *p1 = new Particle(x,y,-1*velocityX,velocityY,2.0,Movement("STREAMER"));	
+				Particle *p2 = new Particle(x,y,velocityX,-1*velocityY,2.0,Movement("STREAMER"));	
+				Particle *p3 = new Particle(x,y,-1*velocityX,-1*velocityY,2.0,Movement("STREAMER"));	
+				Particle *p4 = new Particle(x,y,velocityX,velocityY,2.0,Movement("STREAMER"));	
+				if (owner) {
+					owner->add(p1);
+					owner->add(p2);
+					owner->add(p3);
+					owner->add(p4);
+				}
+			}
 		}
+		frames--;
 }
 
-string Particle::draw(Movement& movementType) {
+string Particle::draw() {
 		return "stub";
 }
 

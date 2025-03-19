@@ -12,6 +12,8 @@ public:
 	Movement(std::string new_type = "STREAMER");
 };
 
+class ParticleSystem;
+
 class Particle {
 public:
 	double x;
@@ -37,8 +39,8 @@ public:
 		double get_velocityY() const;
 		double get_frames() const;
 		std::string get_movementType() const;
-		void physics(Movement& movementType);
-		std::string draw(Movement& movementType);
+		void physics(ParticleSystem *owner);
+		std::string draw();
 };
 
 class ParticleGraphics {
@@ -60,7 +62,7 @@ class ParticleGraphics {
         void drawLine(double x1, double y1, double x2, double y2);
 
         void drawP(Particle& particle);
-        void moveP(Particle& particle);
+        //void moveP(Particle& particle);
 };
 
 
@@ -89,7 +91,7 @@ public:
 		~ParticleSystem(); //Destructor
 		void add(Particle* particle);
 		int numParticles();
-		void moveParticles(ParticleGraphics& graphics);
+		void moveParticles();
 		void drawParticles(ParticleGraphics& graphics);
 		void drawWindow();
 		double get_screenWidth() const; //columns

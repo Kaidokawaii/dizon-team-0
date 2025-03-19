@@ -31,16 +31,16 @@ int ParticleSystem::numParticles() {
 	int count = 0;
 	Cell* current = head;
 	while (current) {
-		count ++;
+		count++;
 		current = current->getNext();
 	}
 	return count;
 }
 
-void ParticleSystem::moveParticles(ParticleGraphics& graphics) {
+void ParticleSystem::moveParticles() {
 	Cell* current = head;
 	while (current) {
-		graphics.moveP(*current->getParticle());
+		current->getParticle()->physics(this);
 		current = current->getNext();
 	}
 }
