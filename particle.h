@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "/public/colors.h"
 
 struct Movement {
 	std::string type;
@@ -78,11 +79,15 @@ class ParticleSystem {
 
 class ParticleGraphics {
 	private:
-		std::string color;
+		int R;
+		int G;
+		int B;
 	public:
 		ParticleGraphics();
-		std::string getColor();
-		void setColor(std::string color);
+		int getColorR();
+		int getColorG();
+		int getColorB();
+		void setColor(int newR, int newG, int newB);
 		void drawPoint(double x, double y);
 		void drawRectangle(double x, double y, double width, double height);
 		void drawOval(double x, double y, double width, double height);

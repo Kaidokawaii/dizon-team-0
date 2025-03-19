@@ -1,19 +1,34 @@
 #include "particle.h"
 #include <iostream>
+
+
 using namespace std;
 
-ParticleGraphics::ParticleGraphics() : color("Default Color") {}
+ParticleGraphics::ParticleGraphics() : R(255), G(255), B(255) {}
 
-string ParticleGraphics::getColor() {
-	return color;
+int ParticleGraphics::getColorR() {
+	return R;
+}
+int ParticleGraphics::getColorG() {
+	return G;
+}
+int ParticleGraphics::getColorB() {
+	return B;
 }
 
-void ParticleGraphics::setColor(string color) {
-	this->color = color;
+void ParticleGraphics::setColor(int newR, int newG, int newB) {
+	R = newR;
+	G = newG;
+	B = newB;
 }
 
 void ParticleGraphics::drawPoint(double x, double y) {
-	cout << "Drawing point at: " << x << "," << y << endl;
+	setbgcolor(R, G, B);
+	movecursor(x, y);
+	cout << " ";
+	cout.flush();
+	resetcolor();
+	//cout << "Drawing point at: " << x << "," << y << endl;
 }
 
 void ParticleGraphics::drawRectangle(double x, double y, double width, double height) {

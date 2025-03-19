@@ -80,7 +80,12 @@ void Particle::moveP() {
 }
 
 void Particle::drawP() {
-	cout << "Drawing at (" << x << "," << y << ")" << endl;
+	/*setbgcolor(R, G, B);
+	movecursor(x, y);
+	cout << " ";
+	cout.flush();
+	resetcolor();*/
+	//cout << "Drawing at (" << x << "," << y << ")" << endl;
 }
 
 string Particle::draw(Movement& movementType) {

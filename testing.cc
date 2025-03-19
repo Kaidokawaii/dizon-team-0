@@ -34,8 +34,8 @@ void testParticleSystem() {
 
     void testParticleGraphics() {
         ParticleGraphics graphics;
-        graphics.setColor("blue");
-        cout << "Current color: " << graphics.getColor() << "\n";
+        //graphics.setColor("blue");
+        //cout << "Current color: " << graphics.getColor() << "\n";
 
         //Test drawing functions
         graphics.drawPoint(50, 50);
@@ -101,14 +101,11 @@ int main() {
 	testParticleSystem();
 	testParticleGraphics();
 
-<<<<<<< HEAD
 
 
 
 
 	cout << "1 + 1 = 2 again" << endl;
-=======
 	cout << "testing and fixing merge conflict" << endl;
->>>>>>> 48ca57fad489d6f25129cfcef81a8e3093b54e8c
 	return 0;
 }
