@@ -5,11 +5,6 @@ using namespace std;
 
 ParticleSystem::ParticleSystem(double width, double height) : screenWidth(width), screenHeight(height), head(nullptr), tail(nullptr) {}
 
-//void ParticleSystem::draw() {
-//    cout << "Drawing at (" << width << "," << height << ")" << endl;
-//}
-
-
 void ParticleSystem::add(Particle* newParticle) {
 	Cell* newCell = new Cell(newParticle);
 	if(!head) {
@@ -42,18 +37,18 @@ int ParticleSystem::numParticles() {
 	return count;
 }
 
-void ParticleSystem::moveParticles() {
+void ParticleSystem::moveParticles(ParticleGraphics& graphics) {
 	Cell* current = head;
 	while (current) {
-		current->getParticle()->moveP();
+		graphics.moveP(*current->getParticle());
 		current = current->getNext();
 	}
 }
 
-void ParticleSystem::drawParticles() {
+void ParticleSystem::drawParticles(ParticleGraphics& graphics) {
 	Cell* current = head;
 	while (current) {
-		current->getParticle()->drawP();
+		graphics.drawP(*current->getParticle());
 		current = current->getNext();
 	}
 }

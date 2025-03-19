@@ -18,7 +18,7 @@ Particle::Particle() {
 		movementType = m;
 }
 
-Particle::Particle(double x, double y) : x(x), y(y), velocityX(0), velocityY(0), frames(0), movementType("STREAMER"), next(nullptr) {}
+Particle::Particle(double x, double y) : x(x), y(y), velocityX(0), velocityY(0), frames(0), movementType("STREAMER") {}
 
 Particle::Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType) {
 		x = new_x;
@@ -73,19 +73,6 @@ void Particle::physics(Movement& movementType) {
 		if (movementType.type == "BALLISTIC") {
 			velocityY += 1;
 		}
-}
-
-void Particle::moveP() {
-    cout << "Moving at (" << x << "," << y << ")" << endl;
-}
-
-void Particle::drawP() {
-	/*setbgcolor(R, G, B);
-	movecursor(x, y);
-	cout << " ";
-	cout.flush();
-	resetcolor();*/
-	//cout << "Drawing at (" << x << "," << y << ")" << endl;
 }
 
 string Particle::draw(Movement& movementType) {

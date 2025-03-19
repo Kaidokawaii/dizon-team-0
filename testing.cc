@@ -8,6 +8,7 @@ using namespace std;
 void testParticleSystem() {
         ParticleSystem system(1080, 720);
         cout << "Screen size: " << 1080 << "x" << 720 << "\n";
+		ParticleGraphics graphics;
 
         //Test add function
         Particle* firstP = new Particle(100, 200);
@@ -22,10 +23,10 @@ void testParticleSystem() {
         cout << "Number of particles: " << system.numParticles() << "\n";
 
         //Test moveParticles
-        system.moveParticles();
+        system.moveParticles(graphics);
 
         //Test drawParticles
-        system.drawParticles();
+        system.drawParticles(graphics);
 
         //Test drawWindow();
         system.drawWindow();

@@ -7,20 +7,20 @@
 #include "/public/colors.h"
 
 struct Movement {
+public:
 	std::string type;
 	Movement(std::string new_type = "STREAMER");
 };
 
 class Particle {
+public:
 	double x;
 	double y;
 	double velocityX;
 	double velocityY;
 	double frames; //the lifetime of the particle
 	Movement movementType;
-	Particle* next;
 
-	public:
 		Particle();
 		Particle(double x, double y);
 		Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType);
@@ -30,8 +30,6 @@ class Particle {
 		void set_velocityY(double new_velocityY);
 		void set_frames(double new_frames);
 		void set_movementType(Movement new_movementType);
-		void moveP();
-		void drawP();
 
 		double get_x() const;
 		double get_y() const;
@@ -43,12 +41,35 @@ class Particle {
 		std::string draw(Movement& movementType);
 };
 
+class ParticleGraphics {
+	public:
+        int R;
+        int G;
+        int B;
+
+        ParticleGraphics();
+        int getColorR();
+        int getColorG();
+        int getColorB();
+        void setColor(int newR, int newG, int newB);
+
+        void drawPoint(double x, double y);
+        void drawRectangle(double x, double y, double width, double height);
+        void drawOval(double x, double y, double width, double height);
+        void drawPolygon(std::vector<double> points);
+        void drawLine(double x1, double y1, double x2, double y2);
+
+        void drawP(Particle& particle);
+        void moveP(Particle& particle);
+};
+
+
 class Cell {
-	private:
+	public:
 		Particle* particle;
 		Cell* next = nullptr;
 		Cell* prev = nullptr;
-	public:
+
 		Cell(Particle* newParticle);
 		Cell* getNext();
 		Cell* getPrev();
@@ -59,41 +80,20 @@ class Cell {
 };
 
 class ParticleSystem {
-	private:
+public:
 		double screenWidth, screenHeight;
 		Cell* head;
 		Cell* tail;
 
-	public: 	
-		//ParticleSystem(double x, double y);
 		ParticleSystem(double width, double height);
 		~ParticleSystem(); //Destructor
 		void add(Particle* particle);
 		int numParticles();
-		void moveParticles();
-		void drawParticles();
+		void moveParticles(ParticleGraphics& graphics);
+		void drawParticles(ParticleGraphics& graphics);
 		void drawWindow();
 		double get_screenWidth() const; //columns
 		double get_screenHeight() const; //rows
-};
-
-class ParticleGraphics {
-	private:
-		int R;
-		int G;
-		int B;
-	public:
-		ParticleGraphics();
-		int getColorR();
-		int getColorG();
-		int getColorB();
-		void setColor(int newR, int newG, int newB);
-		void drawPoint(double x, double y);
-		void drawRectangle(double x, double y, double width, double height);
-		void drawOval(double x, double y, double width, double height);
-		void drawPolygon(std::vector<double> points);
-		void drawLine(double x1, double y1, double x2, double y2);
-
 };
 
 #endif

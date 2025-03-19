@@ -1,32 +1,30 @@
 #include "particle.h"
+#include "/public/colors.h"
 #include <iostream>
 #include <string>
-#include <iostream>
-#include <sys/ioctl.h>
-#include <utility>
 using namespace std;
-
+/*
 //Usage:
 //Echo RED as part of a cout to turn the following text red
 //Echo RESET after you are done and it will go back to normal
 //For example: cout << RED << "Hello World" << RESET << endl;
-const string RESET   = "\033[0m";
-const string BLACK   = "\033[30m";      // Black 
-const string RED     = "\033[31m";      // Red 
-const string GREEN   = "\033[32m";      // Green
-const string YELLOW  = "\033[33m";      // Yellow
-const string BLUE    = "\033[34m";      // Blue 
-const string MAGENTA = "\033[35m";      // Magenta
-const string CYAN    = "\033[36m";      // Cyan 
-const string WHITE   = "\033[37m";      // White
-const string BOLDBLACK   = "\033[1m\033[30m";      // Bold Black
-const string BOLDRED     = "\033[1m\033[31m";      // Bold Red 
-const string BOLDGREEN   = "\033[1m\033[32m";      // Bold Green 
-const string BOLDYELLOW  = "\033[1m\033[33m";      // Bold Yellow 
-const string BOLDBLUE    = "\033[1m\033[34m";      // Bold Blue 
-const string BOLDMAGENTA = "\033[1m\033[35m";      // Bold Magenta 
-const string BOLDCYAN    = "\033[1m\033[36m";      // Bold Cyan 
-const string BOLDWHITE   = "\033[1m\033[37m";      // Bold White
+const std::string RESET   = "\033[0m";
+const std::string BLACK   = "\033[30m";      // Black 
+const std::string RED     = "\033[31m";      // Red 
+const std::string GREEN   = "\033[32m";      // Green
+const std::string YELLOW  = "\033[33m";      // Yellow
+const std::string BLUE    = "\033[34m";      // Blue 
+const std::string MAGENTA = "\033[35m";      // Magenta
+const std::string CYAN    = "\033[36m";      // Cyan 
+const std::string WHITE   = "\033[37m";      // White
+const std::string BOLDBLACK   = "\033[1m\033[30m";      // Bold Black
+const std::string BOLDRED     = "\033[1m\033[31m";      // Bold Red 
+const std::string BOLDGREEN   = "\033[1m\033[32m";      // Bold Green 
+const std::string BOLDYELLOW  = "\033[1m\033[33m";      // Bold Yellow 
+const std::string BOLDBLUE    = "\033[1m\033[34m";      // Bold Blue 
+const std::string BOLDMAGENTA = "\033[1m\033[35m";      // Bold Magenta 
+const std::string BOLDCYAN    = "\033[1m\033[36m";      // Bold Cyan 
+const std::string BOLDWHITE   = "\033[1m\033[37m";      // Bold White
 
 //Sets the background color for all text printed from this point on
 //Values range from 0 to 255 in each color channel
@@ -64,6 +62,7 @@ void clearscreen() {
 }
 
 //copied from colors.h in the colors_demo directory instead of doing #include (dont need to go back and forth for colors)
+*/
 
 ParticleGraphics::ParticleGraphics() : R(255), G(255), B(255) {}
 
@@ -90,6 +89,14 @@ void ParticleGraphics::drawPoint(double x, double y) {
 	resetcolor();
 	cout.flush();
 	//cout << "Drawing point at: " << x << "," << y << endl;
+}
+
+void ParticleGraphics::moveP(Particle& particle) {
+	particle.physics(particle.movementType);
+}
+
+void ParticleGraphics::drawP(Particle& particle) {
+	drawPoint(particle.get_x(), particle.get_y());
 }
 
 void ParticleGraphics::drawRectangle(double x, double y, double width, double height) {
