@@ -59,6 +59,20 @@ double Particle::get_frames() const { return frames; }
 string Particle::get_movementType() const { return movementType.type;}
 	
 void Particle::physics(Movement& movementType) {		
+	
+		x += velocityX;
+		y += velocityY;
+		if (x < 0) {
+			x *= -1;
+			velocityX *= -1;
+		}
+		if (y < 0) {
+			y *= -1;
+			velocityY *= -1;
+		}	
+		if (movementType.type == "BALLISTIC") {
+			velocityY += 1;
+		}
 }
 
 void Particle::moveP() {

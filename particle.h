@@ -72,6 +72,8 @@ class ParticleSystem {
 		void moveParticles();
 		void drawParticles();
 		void drawWindow();
+		double get_screenWidth() const; //columns
+		double get_screenHeight() const; //rows
 };
 
 class ParticleGraphics {

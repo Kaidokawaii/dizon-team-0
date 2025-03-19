@@ -62,3 +62,10 @@ void ParticleSystem::drawWindow() {
 	cout << "Width: " << screenWidth << " Height: " << screenHeight << endl;
 }
 
+double ParticleSystem::get_screenWidth() const {
+	return screenWidth;
+}
+
+double ParticleSystem::get_screenHeight() const {
+	return screenHeight;
+}
