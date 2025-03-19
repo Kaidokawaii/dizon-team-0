@@ -10,3 +10,5 @@ kaiGraphics.o: kaiGraphics.cc particle.h
 	g++ -g -c -fsanitize=address -std=c++23 kaiGraphics.cc
 quennel.o: quennel.cc particle.h
 	g++ -g -c -fsanitize=address -std=c++23 quennel.cc
+clean:
+	rm -f *.o a.out
