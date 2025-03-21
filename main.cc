@@ -98,7 +98,6 @@ void userTests() {
 	}
 }
 
-
 int main() {
 	int choice = 0;
 	cout << "Please Enter a Choice:" << endl;

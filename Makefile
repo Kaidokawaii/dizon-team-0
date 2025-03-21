@@ -1,5 +1,7 @@
-a.out: kaiSystem.o kaiGraphics.o testing.o ethan.o quennel.o particle.h
-	g++ -g -fsanitize=address -std=c++23 testing.o kaiSystem.o kaiGraphics.o ethan.o quennel.o
+a.out: kaiSystem.o kaiGraphics.o main.o ethan.o quennel.o particle.h
+	g++ -g -fsanitize=address -std=c++23 main.o kaiSystem.o kaiGraphics.o ethan.o quennel.o
+main.o: main.cc particle.h
+	g++ -g -c -fsanitize=address -std=c++23 main.cc
 testing.o: testing.cc particle.h
 	g++ -g -c -fsanitize=address -std=c++23 testing.cc
 kaiSystem.o: kaiSystem.cc particle.h
