@@ -1,4 +1,5 @@
 #include "particle.h"
+#include <cassert>
 
 using namespace std;
 
@@ -7,16 +8,127 @@ void die(string s) {
 	exit(EXIT_FAILURE);
 }
 
+void cellTest() {
+	Particle* p = new Particle(1,1,1,1,1,Movement("STREAMER"));
+	Particle* p2 = new Particle(2,2,2,2,2,Movement("FIREWORK"));
+
+	Cell* C = new Cell(p2);
+	Cell* C2 = new Cell(p);
+
+	assert(C->getNext() == nullptr);
+	assert(C->getPrev() == nullptr);
+	assert(C2->getNext() == nullptr);
+	assert(C2->getPrev() == nullptr);
+	assert(C->getParticle() == p2);
+	assert(C2->getParticle() == p);
+
+	C->setNext(C2);
+	C2->setPrev(C);
+
+
+	assert(C->getNext() == C2);
+	assert(C->getPrev() == nullptr);
+	assert(C2->getNext() == nullptr);
+	assert(C2->getPrev() == C);
+	delete p;
+	delete p2;
+	delete C;
+	delete C2;
+}
+
 void particleTest() {
+	Particle* p3 = new Particle(1,2);
+	Particle* p4 = new Particle(1,2,3,4,5,Movement("BALLISTIC"));
+	
+	assert(p3->get_x() == 1);
+	assert(p3->get_y() == 2);
+	assert(p3->get_velocityX() == 0);
+	assert(p3->get_velocityY() == 0);
+	assert(p3->get_frames() == 0);
+	assert(p3->get_movementType() == "STREAMER");
 
+	assert(p4->get_x() == 1);
+	assert(p4->get_y() == 2);
+	assert(p4->get_velocityX() == 3);
+	assert(p4->get_velocityY() == 4);
+	assert(p4->get_frames() == 5);
+	assert(p4->get_movementType() == "BALLISTIC");
+
+	p3->set_x(25);
+	p3->set_y(16);
+	p3->set_velocityX(9);
+	p3->set_velocityY(4);
+	p3->set_frames(1);
+	p3->set_movementType(Movement("FIREWORK"));
+
+	assert(p3->get_x() == 25);
+	assert(p3->get_y() == 16);
+	assert(p3->get_velocityX() == 9);
+	assert(p3->get_velocityY() == 4);
+	assert(p3->get_frames() == 1);
+	assert(p3->get_movementType() == "FIREWORK");
+
+	delete p3;
+	delete p4;
 }
 
-
-void graphicsTest() {
-
-}
 
 void systemTest() {
+	const auto [rows, cols] = get_terminal_size();
+	ParticleSystem PS(cols, rows);
+//	ParticleGraphics graph;
+
+	Particle* p5 = new Particle(1,2);
+	Particle* p6 = new Particle(1,2,3,4,5,Movement("BALLISTIC"));
+	Particle* p7 = new Particle(13,2,7,1,9,Movement("STREAMER"));
+	Particle* p8 = new Particle(18,24,32,54,52,Movement("FIREWORK"));
+
+
+	
+	
+	assert(PS.numParticles() == 0);
+	PS.add(p5);
+	assert(PS.numParticles() == 1);
+	PS.add(p6);
+	assert(PS.numParticles() == 2);
+	PS.add(p7);
+	assert(PS.numParticles() == 3);
+	PS.add(p8);
+	assert(PS.numParticles() == 4);
+
+	PS.moveParticles();
+
+
+	assert(p5->get_x() == 1);
+	assert(p5->get_y() == 2);
+	assert(p5->get_velocityX() == 0);
+	assert(p5->get_velocityY() == 0);
+	assert(p5->get_frames() == -1);
+	assert(p5->get_movementType() == "STREAMER");
+
+
+	assert(p6->get_x() == 4);
+	assert(p6->get_y() == 6);
+	assert(p6->get_velocityX() == 3);
+	assert(p6->get_velocityY() == 5);
+	assert(p6->get_frames() == 4);
+	assert(p6->get_movementType() == "BALLISTIC");
+
+	assert(p7->get_x() == 20);
+	assert(p7->get_y() == 3);
+	assert(p7->get_velocityX() == 7);
+	assert(p7->get_velocityY() == 1);
+	assert(p7->get_frames() == 8);
+	assert(p7->get_movementType() == "STREAMER");
+
+	assert(p8->get_x() == 50);
+	assert(p8->get_y() == 78);
+	assert(p8->get_velocityX() == 32);
+	assert(p8->get_velocityY() == 54);
+	assert(p8->get_frames() == 51);
+	assert(p8->get_movementType() == "FIREWORK");
+
+	
 
 }
 
@@ -118,7 +230,13 @@ int main() {
 	} else if (choice == 3) {
 		cout << "This will run Ethan's project once it is completed" << endl;	
 	} else if (choice == 4) {
-		
+		cout << "Calling All Tests..." << endl;
+		cellTest();		
+		cout << "Cell Class Tests Passed!" << endl;
+		particleTest();		
+		cout << "Particle Class Tests Passed!" << endl;
+		systemTest();		
+		cout << "Particle System Class Tests Passed!" << endl;
 	} else if (choice == 5) {
 		userTests();
 	} else {
