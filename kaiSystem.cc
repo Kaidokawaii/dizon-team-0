@@ -40,15 +40,34 @@ int ParticleSystem::numParticles() {
 void ParticleSystem::moveParticles() {
 	Cell* current = head;
 	while (current) {
-		current->getParticle()->physics(this);
-		current = current->getNext();
+		Particle* particle = current->getParticle();
+		particle->physics(this);
+
+		if (particle->get_x() < 0 || particle->get_x() >= screenWidth || particle->get_y() < 0 || particle->get_y() >= screenHeight) { //check for out of bounds
+			Cell* next = current->getNext();
+			if (current->getPrev()) {
+				current->getPrev()->setNext(next);
+			} else {
+				head = next;
+			}
+			if (next) {
+				next->setPrev(current->getPrev());
+			} else {
+				tail = current->getPrev();
+			}
+			delete particle;
+			delete current;
+			current = next;
+		} else {
+			current = current->getNext();
+		}
 	}
 }
 
 void ParticleSystem::drawParticles(ParticleGraphics& graphics) {
 	Cell* current = head;
 	while (current) {
-		graphics.drawP(*current->getParticle());
+		graphics.drawParticle(*current->getParticle());
 		current = current->getNext();
 	}
 }

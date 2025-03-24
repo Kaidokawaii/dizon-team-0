@@ -98,7 +98,7 @@ void ParticleGraphics::moveP(Particle& particle) {
 }
 */
 
-void ParticleGraphics::drawP(Particle& particle) {
+void ParticleGraphics::drawParticle(Particle& particle) {
 	drawPoint(particle.get_x(), particle.get_y());
 }
 

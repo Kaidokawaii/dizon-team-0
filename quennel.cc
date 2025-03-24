@@ -82,8 +82,5 @@ void Particle::physics(ParticleSystem *owner = nullptr) {
 }
 //testing git push
 //test: writing on git hub
-string Particle::draw() {
-		return "stub";
-}
 
 

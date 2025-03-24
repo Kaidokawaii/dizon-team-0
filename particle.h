@@ -40,7 +40,6 @@ public:
 		double get_frames() const;
 		std::string get_movementType() const;
 		void physics(ParticleSystem *owner);
-		std::string draw();
 };
 
 class ParticleGraphics {
@@ -61,8 +60,7 @@ class ParticleGraphics {
         void drawPolygon(std::vector<double> points);
         void drawLine(double x1, double y1, double x2, double y2);
 
-        void drawP(Particle& particle);
-        //void moveP(Particle& particle);
+        void drawParticle(Particle& particle);
 };
 
 
