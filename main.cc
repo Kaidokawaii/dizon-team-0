@@ -121,12 +121,15 @@ void systemTest() {
 	assert(p7->get_frames() == 8);
 	assert(p7->get_movementType() == "STREAMER");
 
-	assert(p8->get_x() == 50);
-	assert(p8->get_y() == 78);
-	assert(p8->get_velocityX() == 32);
-	assert(p8->get_velocityY() == 54);
-	assert(p8->get_frames() == 51);
-	assert(p8->get_movementType() == "FIREWORK");
+
+	//p8 is deleted b/c out of range
+
+	//assert(p8->get_x() == 50);
+	//assert(p8->get_y() == 78);
+	//assert(p8->get_velocityX() == 32);
+//	assert(p8->get_velocityY() == 54);
+//	assert(p8->get_frames() == 51);
+//	assert(p8->get_movementType() == "FIREWORK");
 
 	
 
