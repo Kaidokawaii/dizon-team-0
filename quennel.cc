@@ -8,43 +8,30 @@ Movement::Movement(string new_type) {
 	type = new_type;
 }
 
-Particle::Particle() {
-		Movement m("STREAMER");
-		x = 0;
-		y = 0;
-		velocityX = 0;
-		velocityY = 0;
-		frames = 0;
-		movementType = m;
-}
+Particle::Particle() : x(0), y(0), velocityX(0), velocityY(0), frames(0), movementType("STREAMER"), R(255), G(255), B(255) {}
 
-Particle::Particle(double x, double y) : x(x), y(y), velocityX(0), velocityY(0), frames(0), movementType("STREAMER") {}
+Particle::Particle(double x, double y) : x(x), y(y), velocityX(0), velocityY(0), frames(0), movementType("STREAMER"), R(255), G(255), B(255) {}
 
-Particle::Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType) {
-		x = new_x;
-		y = new_y;
-		velocityX = new_velocityX;
-		velocityY = new_velocityY;
-		frames = new_frames;
-		movementType = new_movementType;
-}
+Particle::Particle(double x, double y, double vx, double vy, double life, Movement m) : x(y), y(y), velocityX(vx), velocityY(vy), frames(life), movementType(m), R(255), G(255), B(255) {}
+
+
 void Particle::set_x(double new_x) {
 		x = new_x;
 }
 void Particle::set_y(double new_y) {
 		y = new_y;
 }
-void Particle::set_velocityX(double new_velocityX) {
-		velocityX = new_velocityX;
+void Particle::set_velocityX(double vx) {
+		velocityX = vx;
 }
-void Particle::set_velocityY(double new_velocityY) {
-		velocityY = new_velocityY;
+void Particle::set_velocityY(double vy) {
+		velocityY = vy;
 }
-void Particle::set_frames(double new_frames) {
-		frames = new_frames;
+void Particle::set_frames(double life) {
+		frames = life;
 }
-void Particle::set_movementType(Movement new_movementType) {
-		movementType = new_movementType;
+void Particle::set_movementType(Movement m) {
+		movementType = m;
 }
 double Particle::get_x() const { return x; }
 
@@ -80,7 +67,20 @@ void Particle::physics(ParticleSystem *owner = nullptr) {
 		}
 		frames--;
 }
-//testing git push
-//test: writing on git hub
 
+void Particle::setColor(int r, int g, int b) {
+	R = r; G = g; B = b;
+}
+
+int Particle::getR() const {
+	return R;
+}
+
+int Particle::getG() const {
+	return G;
+}
+
+int Particle::getB() const {
+	return B;
+}
 

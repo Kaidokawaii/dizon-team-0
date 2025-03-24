@@ -15,31 +15,46 @@ public:
 class ParticleSystem;
 
 class Particle {
-public:
-	double x;
-	double y;
-	double velocityX;
-	double velocityY;
+	double x, y;
+	double velocityX, velocityY;
 	double frames; //the lifetime of the particle
 	Movement movementType;
+	int R, G, B;
 
+public:
+		//Constructors
 		Particle();
 		Particle(double x, double y);
-		Particle(double new_x, double new_y, double new_velocityX, double new_velocityY, double new_frames, Movement new_movementType);
-		void set_x(double new_x);
-		void set_y(double new_y);
-		void set_velocityX(double new_velocityX);
-		void set_velocityY(double new_velocityY);
-		void set_frames(double new_frames);
-		void set_movementType(Movement new_movementType);
-
+		Particle(double x, double y, double vx, double vy, double life, Movement m);
+		
+		//Physics Methods
+		void physics(ParticleSystem *owner);
+		
+		//Position Getters and Setters
 		double get_x() const;
 		double get_y() const;
+		void set_x(double new_x);
+		void set_y(double new_y);
+
+		//Velocity Getters and Setters
 		double get_velocityX() const;
 		double get_velocityY() const;
+		void set_velocityX(double vx);
+		void set_velocityY(double vy);
+		
+		//Lifetime manegment
 		double get_frames() const;
+		void set_frames(double life);
+		
+		//Movement Type
 		std::string get_movementType() const;
-		void physics(ParticleSystem *owner);
+		void set_movementType(Movement m);
+		
+		//Color Management
+		void setColor(int r, int g, int b);
+		int getR() const;
+		int getG() const;
+		int getB() const;
 };
 
 class ParticleGraphics {

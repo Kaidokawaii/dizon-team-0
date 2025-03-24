@@ -64,12 +64,11 @@ void ParticleSystem::moveParticles() {
 	}
 }
 
-void ParticleSystem::drawParticles(ParticleGraphics& graphics) {
-	clearscreen();
+void ParticleSystem::drawParticles(ParticleGraphics& g) {
 	Cell* current = head;
 	while (current) {
-		Particle* particle = current->getParticle();
-		graphics.drawPoint(particle->get_x(), particle->get_y());
+		Particle* p = current->getParticle();
+		g.drawPoint(p->get_x(), p->get_y());
 		current = current->getNext();
 	}
 }
@@ -83,23 +82,16 @@ double ParticleSystem::get_screenHeight() const {
 }
 
 void ParticleSystem::drawWindow() {
-	ParticleGraphics graphics;
-	graphics.setColor(0, 255, 0); //set to green for testing
+	ParticleGraphics g;
+	g.setColor(255, 255, 255); //set to green for testing
 
-	for (int x = 0; x < screenWidth; x++) { //top
-		graphics.drawPoint(x, 0);
+	for (int x = 0; x < screenWidth; x++) { //top and bottom
+		g.drawPoint(x, 0);
+		g.drawPoint(x, screenHeight-1);
 	}
-
-	for (int y = 0; y < screenHeight; y++) { //bottom
-		graphics.drawPoint(x, screenHeight - 1);
-	}
-
-	for (int y = 0; y < screemheight; y++) { //left side
-		graphics.drawPoint(0, y);
-	}
-
-	for (int y = 0; y < screenHeight; y++) { //right side
-		graphics.drawPoint(screenWidth - 1, y);
+	for (int y = 0; y < screenHeight; y++) { //left right side
+		g.drawPoint(0, y);
+		g.drawPoint(screenWidth-1, y);
 	}
 }
 

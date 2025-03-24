@@ -45,6 +45,52 @@ void testParticleSystem() {
         graphics.drawPolygon({50, 70, 300, 70}); //fix for coords
         graphics.drawLine(0, 0, 1080, 720);
     }   
+void testParticleInfastructure() {
+	const auto [rows, cols] = get_terminal_size(); //terminal size equals amount of cols and rows
+	ParticleSystem system(cols, rows);
+	ParticleGraphics graphics;
+
+	//clear and draw
+	clearscreen();
+	system.drawWindow();
+
+	//add test particles (position, velocity, lifetime, movement type)
+	// 1) Streamer
+	system.add(new Particle(10, 10, 1, 0, 50, Movement("STREAMER")));
+
+	// 2) Ballistic 
+	system.add(new Particle(20, 5, 1, 1, 50, Movement("BALLISTIC")));
+
+	// 3) Firework
+	system.add(new Particle(30, rows-5, 0, -2, 5, Movement("FIREWORK")));
+
+	// 4) Out of bounds particle
+	system.add(new Particle(cols-5, 10, 2, 0, 100, Movement("STREAMER")));
+
+	cout << "Initial state (" << system.numParticles() << " particles)" << endl;
+	system.drawParticles(graphics);
+	usleep(1000000); //pause
+
+	//run 10 frames of simulation
+	for (int frame = 1; frame <= 10; frame++) {
+		clearscreen();
+		system.moveParticles();
+		system.drawWindow();
+		system.drawParticles(graphics);
+
+		cout << "Frame " << frame << " (" << system.numParticles() << " partilces)" << endl;
+
+		usleep(100000); //pause between frames
+	}
+
+	cout << "\nTest results:\n";
+	cout << "- Streamer should have moved to the right\n";
+	cout << "- Ballistic should have curved downward\n";
+	cout << "- Firework should have exploded\n";
+	cout << "- Right-moving particle should have been culled\n";
+	cout << "Final particle count: " << system.numParticles() << endl;
+}
+
 
 int main() {
 	Movement m("FIREWORK");
@@ -101,12 +147,12 @@ int main() {
 	//Khai testing functions:
 	testParticleSystem();
 	testParticleGraphics();
+	testParticleInfastructure();
 
 
 
 
-
-	cout << "1 + 1 = 2 again" << endl;
-	cout << "testing and fixing merge conflict" << endl;
+	//cout << "1 + 1 = 2 again" << endl;
+	//cout << "testing and fixing merge conflict" << endl;
 	return 0;
 }
