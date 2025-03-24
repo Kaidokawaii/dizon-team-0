@@ -43,7 +43,7 @@ void ParticleSystem::moveParticles() {
 		Particle* particle = current->getParticle();
 		particle->physics(this);
 
-		if (particle->get_x() < 0 || particle->get_x() >= screenWidth || particle->get_y() < 0 || particle->get_y() >= screenHeight) { //check for out of bounds
+	/*	if (particle->get_x() < 0 || particle->get_x() >= screenWidth || particle->get_y() < 0 || particle->get_y() >= screenHeight) { //check for out of bounds
 			Cell* next = current->getNext();
 			if (current->getPrev()) {
 				current->getPrev()->setNext(next);
@@ -60,8 +60,36 @@ void ParticleSystem::moveParticles() {
 			current = next;
 		} else {
 			current = current->getNext();
+		} */
+		current = current->getNext();
+	}
+}
+
+void ParticleSystem::deleteParticle(Cell* current) {
+	if (!head) exit(1);
+	if (!(head->getNext())) {
+		Cell* temp = head;
+		delete temp;
+		head = tail = nullptr;
+	} 
+	else {
+		if (current == head) {
+			head = head->getNext();
+			head->setPrev(nullptr);
+			delete current;
+		}
+		else if (current == tail) {
+			tail = tail->getPrev();
+			tail->setNext(nullptr);
+			delete current;
+		}
+		else {
+			current->getPrev()->setNext(current->getNext());
+			current->getNext()->setPrev(current->getPrev());
+			delete current;
 		}
 	}
+
 }
 
 void ParticleSystem::drawParticles(ParticleGraphics& g) {
