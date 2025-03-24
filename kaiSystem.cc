@@ -68,6 +68,7 @@ void ParticleSystem::drawParticles(ParticleGraphics& g) {
 	Cell* current = head;
 	while (current) {
 		Particle* p = current->getParticle();
+		g.setColor(p->getR(), p->getG(), p->getB());
 		g.drawPoint(p->get_x(), p->get_y());
 		current = current->getNext();
 	}
@@ -83,7 +84,7 @@ double ParticleSystem::get_screenHeight() const {
 
 void ParticleSystem::drawWindow() {
 	ParticleGraphics g;
-	g.setColor(255, 255, 255); //set to green for testing
+	g.setColor(255, 255, 255); //set to white for testing
 
 	for (int x = 0; x < screenWidth; x++) { //top and bottom
 		g.drawPoint(x, 0);

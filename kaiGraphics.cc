@@ -85,7 +85,7 @@ void ParticleGraphics::setColor(int newR, int newG, int newB) {
 void ParticleGraphics::drawPoint(double x, double y) {
 	cerr << "\x1b[38;2;" << R << ";" << G << ";" << B << "m";  // Set RGB color
     cerr << "\x1b[" << (int)y+1 << ";" << (int)x+1 << "H";     // Move cursor
-    cerr << "o";                                               // Block character
+    cerr << "■";                                               // Block character
     cerr << "\x1b[0m";                                         // Reset color
     cerr.flush();
 }
