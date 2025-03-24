@@ -84,7 +84,7 @@ void ParticleGraphics::setColor(int newR, int newG, int newB) {
 
 void ParticleGraphics::drawPoint(double x, double y) {
 	setbgcolor(R, G, B);
-	movecursor(static_cast<int>(x), static_cast<int>(y));
+	movecursor(static_cast<int>(y), static_cast<int>(x));
 	cout << " ";
 	resetcolor();
 	cout.flush();
