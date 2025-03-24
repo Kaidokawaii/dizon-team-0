@@ -69,14 +69,9 @@ void ParticleSystem::drawParticles(ParticleGraphics& graphics) {
 	Cell* current = head;
 	while (current) {
 		Particle* particle = current->getParticle();
-		//graphics.setColor();
 		graphics.drawPoint(particle->get_x(), particle->get_y());
 		current = current->getNext();
 	}
-}
-
-void ParticleSystem::drawWindow() {
-	cout << "Width: " << screenWidth << " Height: " << screenHeight << endl;
 }
 
 double ParticleSystem::get_screenWidth() const {
@@ -86,3 +81,25 @@ double ParticleSystem::get_screenWidth() const {
 double ParticleSystem::get_screenHeight() const {
 	return screenHeight;
 }
+
+void ParticleSystem::drawWindow() {
+	ParticleGraphics graphics;
+	graphics.setColor(0, 255, 0); //set to green for testing
+
+	for (int x = 0; x < screenWidth; x++) { //top
+		graphics.drawPoint(x, 0);
+	}
+
+	for (int y = 0; y < screenHeight; y++) { //bottom
+		graphics.drawPoint(x, screenHeight - 1);
+	}
+
+	for (int y = 0; y < screemheight; y++) { //left side
+		graphics.drawPoint(0, y);
+	}
+
+	for (int y = 0; y < screenHeight; y++) { //right side
+		graphics.drawPoint(screenWidth - 1, y);
+	}
+}
+
