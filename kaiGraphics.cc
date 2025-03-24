@@ -98,10 +98,6 @@ void ParticleGraphics::moveP(Particle& particle) {
 }
 */
 
-void ParticleGraphics::drawParticle(Particle& particle) {
-	drawPoint(particle.get_x(), particle.get_y());
-}
-
 void ParticleGraphics::drawRectangle(double x, double y, double width, double height) {
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
