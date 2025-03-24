@@ -67,7 +67,9 @@ void ParticleSystem::moveParticles() {
 void ParticleSystem::drawParticles(ParticleGraphics& graphics) {
 	Cell* current = head;
 	while (current) {
-		graphics.drawParticle(*current->getParticle());
+		Particle* particle = current->getParticle();
+		graphics.setColor(particle->R, particle->G, particle->B);
+		graphics.drawPoint(particle->get_x(), particle->get_y());
 		current = current->getNext();
 	}
 }
