@@ -22,20 +22,24 @@ int main() {
     system.add(ballistic);
     system.add(firework);
 
-    // Animation loop
-    for (int i = 0; i < 100; i++) {
+	char input;
+	int frame = 0;
+	do {
 		clearscreen();
 
-		system.drawWindow();
 		system.moveParticles();
+		system.drawWindow();
 		system.drawParticles(graphics);
 
 		movecursor(0, 0);
-		cout << "Particles: " << system.numParticles() << "     ";
+		cout << "Frame: " << frame++
+			 <<	" | Particles: " << system.numParticles()
+			 << " | [Space] Next [q] Quit";
 		cout.flush();
 
-        usleep(500000); // 100ms delay
-    }
+		cin.get(input);
+	} while (input != 'q');
 
-    return 0;
+	clearscreen();
+	return 0;
 }
