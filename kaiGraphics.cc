@@ -103,7 +103,11 @@ void ParticleGraphics::drawParticle(Particle& particle) {
 }
 
 void ParticleGraphics::drawRectangle(double x, double y, double width, double height) {
-	cout << "Drawing Rectangle at (" << x << ", " << y << ") and size: " << width << "x" << height << endl;
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			drawPoint(x + j, y + i);
+		}
+	}
 }
 
 void ParticleGraphics::drawOval(double x, double y, double width, double height) {
