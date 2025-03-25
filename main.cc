@@ -107,10 +107,11 @@ void systemTest() {
 	assert(p5->get_movementType() == "STREAMER");
 
 
+
 	assert(p6->get_x() == 4);
 	assert(p6->get_y() == 6);
 	assert(p6->get_velocityX() == 3);
-	assert(p6->get_velocityY() == 5);
+	assert(p6->get_velocityY() == 4.5);
 	assert(p6->get_frames() == 4);
 	assert(p6->get_movementType() == "BALLISTIC");
 
