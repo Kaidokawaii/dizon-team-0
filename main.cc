@@ -1,4 +1,5 @@
 #include "particle.h"
+#include "ethanProjec.h"
 #include <cassert>
 
 using namespace std;
@@ -232,7 +233,7 @@ int main() {
 	} else if (choice == 2) {
 		cout << "This will run Quennel's project once it is completed" << endl;
 	} else if (choice == 3) {
-		cout << "This will run Ethan's project once it is completed" << endl;	
+		ethanProject();
 	} else if (choice == 4) {
 		cout << "Calling All Tests..." << endl;
 		cellTest();		
