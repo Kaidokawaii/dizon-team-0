@@ -20,10 +20,10 @@ void particleCollision(ParticleSystem& system) {
 				if (p1->getR() == 255 && p1->getG() == 0 && p1->getB() == 0 &&
 					p2->getR() == 0 && p2->getG() == 255 && p2->getB() == 0) {
 					p2->setColor(255, 0, 0); //green -> red
-				} else if (p1->getR() == 0 && p1->getG() == 255 && p1->getB() == 0 &&
+				} if (p1->getR() == 0 && p1->getG() == 255 && p1->getB() == 0 &&
                     p2->getR() == 0 && p2->getG() == 0 && p2->getB() == 255) {
                     p2->setColor(0, 255, 0); //blue -> green
-				} else if (p1->getR() == 0 && p1->getG() == 0 && p1->getB() == 255 &&
+				} if (p1->getR() == 0 && p1->getG() == 0 && p1->getB() == 255 &&
                     p2->getR() == 255 && p2->getG() == 0 && p2->getB() == 0) {
                     p2->setColor(0, 0, 255); //red -> blue
 				}
