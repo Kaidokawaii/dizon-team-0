@@ -1,5 +1,6 @@
 #include "particle.h"
 #include "ethanProjec.h"
+#include "khai_project.h"
 #include <cassert>
 
 using namespace std;
@@ -229,7 +230,7 @@ int main() {
 	if (!cin) {
 		die("Failed To Read Value From Choices");
 	} else if (choice == 1) {
-		cout << "This will run Khai's project once it is completed" << endl;	
+		khai_project();
 	} else if (choice == 2) {
 		cout << "This will run Quennel's project once it is completed" << endl;
 	} else if (choice == 3) {
