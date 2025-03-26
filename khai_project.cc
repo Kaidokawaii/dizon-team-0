@@ -61,7 +61,7 @@ void khai_project() {
 		system.add(p);
 	}
 //animation loop	
-	for (int frame = 0; frame < 500; frame++) {
+	for (int frame = 0; frame < 100; frame++) {
 		clearscreen();
 
 		particleCollision(system);
