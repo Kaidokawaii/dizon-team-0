@@ -65,6 +65,28 @@ void ParticleSystem::moveParticles() {
 	}
 }
 
+void ParticleSystem::deleteQParticle() {
+	Cell* temp = head;
+	while (temp) {
+		Particle* p = temp->getParticle();
+		Cell* cur = temp;
+		temp = temp->next;
+		/*if (p->get_frames() == 0) {
+			deleteParticle(cur);
+		}*/
+		if (p->get_x() < 0 or p->get_x() >= screenWidth or p->get_y() < 0 or p->get_y() >= screenHeight) {
+			deleteParticle(cur);
+		}
+		else if (p->get_frames() < 0 and p->get_movementType() == "BALLISTIC") {
+			deleteParticle(cur);
+		}
+		else if (p->get_frames() == 0 and p->get_movementType() == "STREAMER") {
+			deleteParticle(cur);
+		}
+
+	}
+}
+
 void ParticleSystem::deleteParticle(Cell* current) {
 	if (!head) exit(1);
 	if (!(head->getNext())) {

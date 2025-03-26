@@ -1,4 +1,5 @@
 #include "particle.h"
+#include "quennel_screenSaver.h"
 #include <cassert>
 
 using namespace std;
@@ -230,7 +231,8 @@ int main() {
 	} else if (choice == 1) {
 		cout << "This will run Khai's project once it is completed" << endl;	
 	} else if (choice == 2) {
-		cout << "This will run Quennel's project once it is completed" << endl;
+		quennel_project();
+		//cout << "This will run Quennel's project once it is completed" << endl;
 	} else if (choice == 3) {
 		cout << "This will run Ethan's project once it is completed" << endl;	
 	} else if (choice == 4) {
