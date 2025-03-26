@@ -1,9 +1,6 @@
 #include "particle.h"
-<<<<<<< HEAD
 #include "quennel_screenSaver.h"
-=======
 #include "ethanProjec.h"
->>>>>>> 6f6ac9f269e2eb6eabb7a03caee75391290c7050
 #include <cassert>
 
 using namespace std;
