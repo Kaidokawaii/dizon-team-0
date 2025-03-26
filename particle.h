@@ -109,6 +109,7 @@ public:
 		double get_screenHeight() const; //rows
 		void deleteQParticle();
 		void deleteParticle(Cell* current); //deletes given particle
+		void ethanProjectDelete();
 };
 
 #endif
