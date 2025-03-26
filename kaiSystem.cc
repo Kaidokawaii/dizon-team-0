@@ -65,10 +65,24 @@ void ParticleSystem::moveParticles() {
 	}
 }
 
+void ParticleSystem::ethanProjectDelete() {
+	Cell* temp = head;
+	while (temp) {
+		Particle* p = temp->getParticle();
+		Cell* currNode = temp;
+		temp = temp->next;
+		if (p->get_x() < 0 || p->get_x() >= screenWidth || p->get_y() < 0 || p->get_y() >= screenHeight - 1) { //check for out of bounds
+			//cout << "Deleting Particle B/C Out Of Range" << endl;
+			deleteParticle(currNode);
+		}
+	}
+}
+
 void ParticleSystem::deleteParticle(Cell* current) {
 	if (!head) exit(1);
 	if (!(head->getNext())) {
 		Cell* temp = head;
+		delete temp->getParticle();
 		delete temp;
 		head = tail = nullptr;
 	} 
@@ -76,16 +90,19 @@ void ParticleSystem::deleteParticle(Cell* current) {
 		if (current == head) {
 			head = head->getNext();
 			head->setPrev(nullptr);
+			delete current->getParticle();
 			delete current;
 		}
 		else if (current == tail) {
 			tail = tail->getPrev();
 			tail->setNext(nullptr);
+			delete current->getParticle();
 			delete current;
 		}
 		else {
 			current->getPrev()->setNext(current->getNext());
 			current->getNext()->setPrev(current->getPrev());
+			delete current->getParticle();
 			delete current;
 		}
 	}

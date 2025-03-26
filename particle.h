@@ -108,6 +108,7 @@ public:
 		double get_screenWidth() const; //columns
 		double get_screenHeight() const; //rows
 		void deleteParticle(Cell* current); //deletes given particle
+		void ethanProjectDelete();
 };
 
 #endif
