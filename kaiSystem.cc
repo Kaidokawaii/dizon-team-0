@@ -18,13 +18,19 @@ void ParticleSystem::add(Particle* newParticle) {
 }
 
 ParticleSystem::~ParticleSystem() {
-    Cell* current = head;
+   	cerr << "Destructor called, deleteing " << numParticles() << " particles\n";
+	Cell* current = head;
     while (current) {
         Cell* next = current->getNext();
-        delete current->getParticle();
-        delete current;
+		if (current->getParticle()) {
+			cerr << "Deleting particles at " << current->getParticle() << "\n";
+			delete current->getParticle();
+		}
+		cerr << "Deleting cell at " << current->getParticle() << "\n";
+		delete current;
         current = next;
     }
+	cerr << "Destruction Complete\n";
 }
 
 int ParticleSystem::numParticles() {

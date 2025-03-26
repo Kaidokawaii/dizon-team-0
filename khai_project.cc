@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <cstdlib>
 
-void particleCollision(Particle& system) {
+void particleCollision(ParticleSystem& system) {
 	Cell* current = system.getHead();
 	while (current) {
 		Particle* p1 = current->getParticle();
@@ -11,8 +11,8 @@ void particleCollision(Particle& system) {
 		while (other) {
 			Particle* p2 = other->getParticle();
 
-			double dx = p1-get_x() - p2->get_x();
-			double dy = p1-get_y() - p2->get_y();
+			double dx = p1->get_x() - p2->get_x();
+			double dy = p1->get_y() - p2->get_y();
 			double distance = dx*dx + dy*dy;
 
 			if (distance < 4.0) { //collision
@@ -38,26 +38,29 @@ void khai_project() {
 	ParticleSystem system(cols, rows);
 	ParticleGraphics graphics;
 
-	for (int i = 0; i <30; i++) {
+	for (int i = 0; i <60; i++) {
 		Particle* p = new Particle(
-				rand() % static_cast<int>(system.get_screenWidth()),
-				rand() % static_cast<int>(system.get_screenHeight()),
+				rand() % static_cast<int>(system.get_screenWidth()-2),
+				rand() % static_cast<int>(system.get_screenHeight()-2),
 				(rand()%5)-2,
 				(rand()%5)-2,
 				1000,
 				Movement("STREAMER")
 			);
 
-		if (i < 10) p->setColor(255, 0, 0);
-		else if (i < 20) p->setColor(0, 255, 0);
+		if (i < 20) p->setColor(255, 0, 0);
+		else if (i < 40) p->setColor(0, 255, 0);
 		else p->setColor(0, 0, 255);
 
 		system.add(p);
 	}
-	
-	while (true) {
+//animation loop	
+	for (int frame = 0; frame < 250; frame++) {
+		
 		clearscreen();
+
 		particleCollision(system);
+		
 		system.moveParticles();
 
 		Cell* current = system.getHead();
@@ -73,10 +76,13 @@ void khai_project() {
 			current = current->getNext();
 		}
 
-		system.drawWindow();
+		//system.drawWindow();
 		system.drawParticles(graphics);
 
-		if (kbhit()) break;
-		usleep(100000);
+		movecursor(0, 0);
+		//std::cout << "Frame: " << frame << "/100 - Particles: " << system.numParticles();
+		//std::cout.flush();
+
+		usleep(80000);
 	}
 }
