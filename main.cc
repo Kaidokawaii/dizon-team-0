@@ -3,7 +3,11 @@
 #include "quennel_screenSaver.h"
 =======
 #include "ethanProjec.h"
+<<<<<<< HEAD
 >>>>>>> 6f6ac9f269e2eb6eabb7a03caee75391290c7050
+=======
+#include "khai_project.h"
+>>>>>>> khai_project
 #include <cassert>
 
 using namespace std;
@@ -233,7 +237,7 @@ int main() {
 	if (!cin) {
 		die("Failed To Read Value From Choices");
 	} else if (choice == 1) {
-		cout << "This will run Khai's project once it is completed" << endl;	
+		khai_project();
 	} else if (choice == 2) {
 		quennel_project();
 		//cout << "This will run Quennel's project once it is completed" << endl;

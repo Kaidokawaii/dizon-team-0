@@ -93,11 +93,12 @@ class Cell {
 };
 
 class ParticleSystem {
-public:
 		double screenWidth, screenHeight;
 		Cell* head;
 		Cell* tail;
 
+	public:
+		Cell* getHead() const { return head; }
 		ParticleSystem(double width, double height);
 		~ParticleSystem(); //Destructor
 		void add(Particle* particle);

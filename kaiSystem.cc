@@ -18,11 +18,13 @@ void ParticleSystem::add(Particle* newParticle) {
 }
 
 ParticleSystem::~ParticleSystem() {
-    Cell* current = head;
+	Cell* current = head;
     while (current) {
         Cell* next = current->getNext();
-        delete current->getParticle();
-        delete current;
+		if (current->getParticle()) {
+			delete current->getParticle();
+		}
+		delete current;
         current = next;
     }
 }
