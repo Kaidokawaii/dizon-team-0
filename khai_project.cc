@@ -1,6 +1,7 @@
 #include "khai_project.h"
 #include <unistd.h>
 #include <cstdlib>
+#include <cmath>
 
 void particleCollision(ParticleSystem& system) {
 	Cell* current = system.getHead();
@@ -13,18 +14,18 @@ void particleCollision(ParticleSystem& system) {
 
 			double dx = p1->get_x() - p2->get_x();
 			double dy = p1->get_y() - p2->get_y();
-			double distance = dx*dx + dy*dy;
+			double distance = sqrt(dx*dx + dy*dy);
 
-			if (distance < 4.0) { //collision
+			if (distance < 2.0) { //collision
 				if (p1->getR() == 255 && p1->getG() == 0 && p1->getB() == 0 &&
 					p2->getR() == 0 && p2->getG() == 255 && p2->getB() == 0) {
 					p2->setColor(255, 0, 0); //green -> red
 				} else if (p1->getR() == 0 && p1->getG() == 255 && p1->getB() == 0 &&
                     p2->getR() == 0 && p2->getG() == 0 && p2->getB() == 255) {
-                    p2->setColor(255, 0, 0); //blue -> green
+                    p2->setColor(0, 255, 0); //blue -> green
 				} else if (p1->getR() == 0 && p1->getG() == 0 && p1->getB() == 255 &&
                     p2->getR() == 255 && p2->getG() == 0 && p2->getB() == 0) {
-                    p2->setColor(255, 0, 0); //red -> blue
+                    p2->setColor(0, 0, 255); //red -> blue
 				}
 			}
 			other = other->getNext();
@@ -37,13 +38,18 @@ void khai_project() {
 	auto [rows, cols] = get_terminal_size();
 	ParticleSystem system(cols, rows);
 	ParticleGraphics graphics;
+	
+	const double base_speed = 2.0;
 
 	for (int i = 0; i <60; i++) {
+		double angle = (rand()% 360) * M_PI / 180.0;
+
 		Particle* p = new Particle(
-				rand() % static_cast<int>(system.get_screenWidth()-2),
-				rand() % static_cast<int>(system.get_screenHeight()-2),
-				(rand()%5)-2,
-				(rand()%5)-2,
+				2 + rand() % static_cast<int>(system.get_screenWidth()-4),
+				2 + rand() % static_cast<int>(system.get_screenHeight()-4),
+				
+				base_speed * cos(angle),
+				base_speed * sin(angle),
 				1000,
 				Movement("STREAMER")
 			);
@@ -55,8 +61,7 @@ void khai_project() {
 		system.add(p);
 	}
 //animation loop	
-	for (int frame = 0; frame < 250; frame++) {
-		
+	for (int frame = 0; frame < 500; frame++) {
 		clearscreen();
 
 		particleCollision(system);
