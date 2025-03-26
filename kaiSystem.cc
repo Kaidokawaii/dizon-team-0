@@ -65,7 +65,6 @@ void ParticleSystem::moveParticles() {
 	}
 }
 
-<<<<<<< HEAD
 void ParticleSystem::deleteQParticle() {
 	Cell* temp = head;
 	while (temp) {
@@ -84,8 +83,7 @@ void ParticleSystem::deleteQParticle() {
 		else if (p->get_frames() == 0 and p->get_movementType() == "STREAMER") {
 			deleteParticle(cur);
 		}
-
-=======
+	}
 void ParticleSystem::ethanProjectDelete() {
 	Cell* temp = head;
 	while (temp) {
@@ -96,7 +94,6 @@ void ParticleSystem::ethanProjectDelete() {
 			//cout << "Deleting Particle B/C Out Of Range" << endl;
 			deleteParticle(currNode);
 		}
->>>>>>> 6f6ac9f269e2eb6eabb7a03caee75391290c7050
 	}
 }
 
