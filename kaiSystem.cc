@@ -86,6 +86,8 @@ void ParticleSystem::deleteQParticle() {
 			deleteParticle(cur);
 		}
 	}
+}
+
 void ParticleSystem::ethanProjectDelete() {
 	Cell* temp = head;
 	while (temp) {

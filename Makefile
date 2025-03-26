@@ -1,3 +1,5 @@
+a.out: kaiSystem.o kaiGraphics.o main.o ethan.o quennel.o quennel_screenSaver.o ethanProjec.o khai_project.o particle.h quennel_screenSaver.h ethanProjec.h khai_project.h
+	g++ -g  -fsanitize=address -std=c++23 main.o kaiSystem.o kaiGraphics.o ethan.o quennel.o quennel_screenSaver.o khai_project.o ethanProjec.o
 main.o: main.cc particle.h
 	g++ -g -c -fsanitize=address -std=c++23 main.cc
 testing.o: testing.cc particle.h
